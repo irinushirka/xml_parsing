@@ -73,7 +73,7 @@ class XMLCreator {
             StreamResult console = new StreamResult(System.out);
             transformer.transform(source, console);
             System.out.println(console);
-            StreamResult file = new StreamResult(new File("C:\\Users\\1\\Desktop\\Универ\\3 курс\\СиТАиРИС\\Laba 4\\Parser\\file.xml"));
+            StreamResult file = new StreamResult(new File("xml_parser\\resources\\file.xml"));
 
             transformer.transform(source, file);
 

@@ -17,12 +17,12 @@ public class Check {
             File xsd = new File(schema_name);
 
             if (!xml.exists()) {
-                System.out.println("Не найден XML." + file_name);
+                System.out.println("Не найден XML: " + file_name);
                 return false;
             }
 
             if (!xsd.exists()) {
-                System.out.println("Не найден XSD." + schema_name);
+                System.out.println("Не найден XSD: " + schema_name);
                 return false;
             }
 
