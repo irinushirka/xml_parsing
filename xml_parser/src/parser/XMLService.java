@@ -1,18 +1,18 @@
 package parser;
 
 import org.xml.sax.SAXException;
+import book_shop.Book;
+import parser.interfaces.SimpleDomInterface;
+import parser.interfaces.SimpleSAXInterface;
+import parser.interfaces.XMLServiceProtocol;
+
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-interface XMLServiceProtocol {
-    ArrayList<String> simpleSaxStart(String file_name, String tag_name);
-    ArrayList<Book> simpleDomParse(String file_name) throws ParserConfigurationException, SAXException, IOException;
-}
-
-public class XMLService implements XMLServiceProtocol  {
-    SimpleDomInterface simpleDom;
-    SimpleSAXInterface simpleSAX;
+public class XMLService implements XMLServiceProtocol {
+    private SimpleDomInterface simpleDom;
+    private SimpleSAXInterface simpleSAX;
 
     public XMLService(SimpleDOM simpleDOM, SimpleSAX simpleSAX) {
         this.simpleDom = simpleDOM;

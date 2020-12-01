@@ -6,14 +6,11 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
-import org.xml.sax.SAXException;
 
 // Singleton
 public class Check {
     public static final Check instance = new Check();
-
     private Check() {}
-
     public boolean check(String file_name, String schema_name){
         try {
             File xml = new File(file_name);
