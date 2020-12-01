@@ -1,12 +1,14 @@
 package parser;
 import org.xml.sax.SAXException;
+import book_shop.Book;
+import book_shop.BookShop;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class XMLTaskFacade {
-    public XMLService xmlService;
+    private XMLService xmlService;
 
     XMLTaskFacade(XMLService xmlService) {
         this.xmlService = xmlService;

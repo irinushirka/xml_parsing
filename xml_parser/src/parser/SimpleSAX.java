@@ -3,27 +3,25 @@ package parser;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import observer.XMLPublisher;
-import observer.XMLStartEndParseListener;
+import observer.xml.XMLEditor;
+import observer.xml.interfaces.XMLEditorEventsInterface;
+import observer.xml.enums.XMLEventType;
+import observer.xml.listeners.XMLStartEndParseListener;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+import parser.interfaces.SimpleSAXInterface;
 
 import java.util.ArrayList;
-
-interface SimpleSAXInterface {
-    ArrayList<String> start(String tag, String file_name);
-}
-
 final class SimpleSAX implements SimpleSAXInterface {
     private ArrayList<String> results = new ArrayList();
-    private XMLPublisher XMLPublisher = new XMLPublisher();
+    private XMLEditorEventsInterface editor = new XMLEditor();
 
     DefaultHandler handler;
 
     public SimpleSAX() {
-        XMLPublisher.events.subscribe("startXMLParse", new XMLStartEndParseListener());
-        XMLPublisher.events.subscribe("endXMLParse", new XMLStartEndParseListener());
+        editor.subscribeTo(XMLEventType.START_XML_PARSE, new XMLStartEndParseListener());
+        editor.subscribeTo(XMLEventType.END_XML_PARSE, new XMLStartEndParseListener());
     }
 
     @Override
@@ -54,7 +52,7 @@ final class SimpleSAX implements SimpleSAXInterface {
             public void startDocument() throws SAXException
             {
                 try {
-                    XMLPublisher.startXMLParse(file_name);
+                    editor.startXMLParse(file_name);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -63,7 +61,7 @@ final class SimpleSAX implements SimpleSAXInterface {
             public void endDocument() throws SAXException
             {
                 try {
-                    XMLPublisher.endXMLParse();
+                    editor.endXMLParse(file_name);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

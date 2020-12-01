@@ -5,13 +5,12 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
+import book_shop.Book;
+import parser.interfaces.SimpleDomInterface;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-
-interface SimpleDomInterface {
-    ArrayList<Book> parse(String file_name) throws IOException, ParserConfigurationException, SAXException;
-}
+import book_shop.*;
 
 final class SimpleDOM implements SimpleDomInterface {
     @Override
