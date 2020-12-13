@@ -8,10 +8,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws NullPointerException, ParserConfigurationException, SAXException, IOException {
         Scanner scanner = new Scanner(System.in);
-        String file_name = "file.xml";
+        String file_name = "xml_parser\\resources\\file.xml";
         String tag_name;
-        //XMLCreator.create(); // create XML if you need it
-        if (Check.instance.check(file_name, "schema.xsd")) { // checking if this XML is valid according to XSD
+        // XMLCreator.create(); // create XML if you need it
+        if (Check.instance.check(file_name, "xml_parser\\resources\\schema.xsd")) { // checking if this XML is valid according to XSD
             System.out.println("XML file is valid!");
             System.out.println("------- SAX -------");
             System.out.println("Input tag name: ");
